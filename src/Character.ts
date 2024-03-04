@@ -1,6 +1,6 @@
 import Archetype, { Mage } from './Archetypes';
 import Energy from './Energy';
-import Fighter from './Fighter';
+import Fighter, { SimpleFighter } from './Fighter';
 import Race, { Elf } from './Races';
 import getRandomInt from './utils';
 
@@ -69,23 +69,25 @@ class Character implements Fighter {
     return this._lifePoints;
   }
 
-  attack(enemy: Fighter): void {
+  attack(enemy: SimpleFighter): void {
     const attackPoints = this._strength;
     enemy.receiveDamage(attackPoints);
   }
 
   levelUp(): void {
-    this._defense += 1;
-    this._dexterity += 2;
-    this._strength += 2;
+    const increment = 5;
 
-    this._maxLifePoints = Math.min(this._race.maxLifePoints, this._maxLifePoints + 5);
+    this._defense += increment;
+    this._dexterity += increment;
+    this._strength += increment;
+
+    this._maxLifePoints = Math.min(this._race.maxLifePoints, this._maxLifePoints + increment);
 
     this._lifePoints = this._maxLifePoints;
     this._energy.amount = 10;
   }
 
-  special(enemy: Fighter): void {
+  special(enemy: SimpleFighter): void {
     // Spend randomly 1 to 10 mana. For each mana spent, increase the base attack by 40%.
     const manaSpent = Math.min(getRandomInt(1, 10), this._energy.amount);
     const specialAttackPoints = this._strength * (1 + 0.4 * manaSpent);
