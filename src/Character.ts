@@ -77,7 +77,7 @@ class Character implements Fighter {
   levelUp(): void {
     this._defense += 1;
     this._dexterity += 2;
-    this._strength += 1;
+    this._strength += 2;
 
     this._maxLifePoints = Math.min(this._race.maxLifePoints, this._maxLifePoints + 5);
 
@@ -86,9 +86,9 @@ class Character implements Fighter {
   }
 
   special(enemy: Fighter): void {
-    // Spend randomly 1 to 10 mana. For each mana spent, increase the base attack by 20%.
+    // Spend randomly 1 to 10 mana. For each mana spent, increase the base attack by 40%.
     const manaSpent = Math.min(getRandomInt(1, 10), this._energy.amount);
-    const specialAttackPoints = this._strength * (1 + 0.2 * manaSpent);
+    const specialAttackPoints = this._strength * (1 + 0.4 * manaSpent);
     enemy.receiveDamage(specialAttackPoints);
   }
 }
