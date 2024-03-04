@@ -46,7 +46,7 @@ class Character implements Fighter {
   }
 
   get dexterity(): number {
-    return this.dexterity;
+    return this._dexterity;
   }
 
   get energy(): Energy {
@@ -67,6 +67,29 @@ class Character implements Fighter {
     if (this._lifePoints < 0) { this._lifePoints = -1; }
 
     return this._lifePoints;
+  }
+
+  attack(enemy: Fighter): void {
+    const attackPoints = this._strength;
+    enemy.receiveDamage(attackPoints);
+  }
+
+  levelUp(): void {
+    this._defense += 1;
+    this._dexterity += 2;
+    this._strength += 1;
+
+    this._maxLifePoints = Math.min(this._race.maxLifePoints, this._maxLifePoints + 5);
+
+    this._lifePoints = this._maxLifePoints;
+    this._energy.amount = 10;
+  }
+
+  special(enemy: Fighter): void {
+    // Spend randomly 1 to 10 mana. For each mana spent, increase the base attack by 20%.
+    const manaSpent = Math.min(getRandomInt(1, 10), this._energy.amount);
+    const specialAttackPoints = this._strength * (1 + 0.2 * manaSpent);
+    enemy.receiveDamage(specialAttackPoints);
   }
 }
 
