@@ -69,7 +69,7 @@ class Character implements Fighter {
     return this._lifePoints;
   }
 
-  attack(enemy: SimpleFighter): void {
+  attack(enemy: SimpleFighter | Fighter): void {
     const attackPoints = this._strength;
     enemy.receiveDamage(attackPoints);
   }
@@ -87,7 +87,7 @@ class Character implements Fighter {
     this._energy.amount = 10;
   }
 
-  special(enemy: SimpleFighter): void {
+  special(enemy: SimpleFighter | Fighter): void {
     // Spend randomly 1 to 10 mana. For each mana spent, increase the base attack by 40%.
     const manaSpent = Math.min(getRandomInt(1, 10), this._energy.amount);
     const specialAttackPoints = this._strength * (1 + 0.4 * manaSpent);
