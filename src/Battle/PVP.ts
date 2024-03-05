@@ -6,14 +6,14 @@ class PVP extends Battle {
     super(hero);
   }
 
-  private defineAttackOrder() {
-    const firstToAct = Math.random() < 0.5 ? this.hero : this.rival;
-    const secondToAct = firstToAct === this.hero ? this.rival : this.hero;
+  static defineAttackOrder(hero: Fighter, rival: Fighter) {
+    const firstToAct = Math.random() < 0.5 ? hero : rival;
+    const secondToAct = firstToAct === hero ? rival : hero;
     return { firstToAct, secondToAct };
   }
 
   fight(): number {
-    const { firstToAct, secondToAct } = this.defineAttackOrder();
+    const { firstToAct, secondToAct } = PVP.defineAttackOrder(this.hero, this.rival);
 
     while (this.hero.lifePoints > 0 && this.rival.lifePoints > 0) {
       firstToAct.attack(secondToAct);
