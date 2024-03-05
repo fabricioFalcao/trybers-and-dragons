@@ -12,6 +12,18 @@ class PVP extends Battle {
     return { firstToAct, secondToAct };
   }
 
+  fight(): number {
+    const { firstToAct, secondToAct } = this.defineAttackOrder();
+
+    while (this.hero.lifePoints > 0 && this.rival.lifePoints > 0) {
+      firstToAct.attack(secondToAct);
+      if (secondToAct.lifePoints > 0) {
+        secondToAct.attack(firstToAct);
+      }
+    }
+    return super.fight();
+  }
+
   // private specialAttack() {
   //   const { firstToAct, secondToAct } = this.defineAttackOrder();
   //   const firstSpecial = firstToAct.special ? firstToAct.special : firstToAct.attack;
@@ -43,18 +55,6 @@ class PVP extends Battle {
   //   }
   //   return super.fight();
   // }
-
-  fight(): number {
-    const { firstToAct, secondToAct } = this.defineAttackOrder();
-
-    while (this.hero.lifePoints > 0 && this.rival.lifePoints > 0) {
-      firstToAct.attack(secondToAct);
-      if (secondToAct.lifePoints > 0) {
-        secondToAct.attack(firstToAct);
-      }
-    }
-    return super.fight();
-  }
 }
 
 export default PVP;
