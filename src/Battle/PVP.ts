@@ -25,7 +25,7 @@ class PVP extends Battle {
   }
 
   // private specialAttack() {
-  //   const { firstToAct, secondToAct } = this.defineAttackOrder();
+  //   const { firstToAct, secondToAct } = PVP.defineAttackOrder(this.hero, this.rival);
   //   const firstSpecial = firstToAct.special ? firstToAct.special : firstToAct.attack;
   //   const secondSpecial = secondToAct.special ? secondToAct.special : secondToAct.attack;
 
@@ -36,7 +36,7 @@ class PVP extends Battle {
   // }
 
   // private normalAttack() {
-  //   const { firstToAct, secondToAct } = this.defineAttackOrder();
+  //   const { firstToAct, secondToAct } = PVP.defineAttackOrder(this.hero, this.rival);
   //   firstToAct.attack(secondToAct);
   //   if (secondToAct.lifePoints > 0) {
   //     secondToAct.attack(firstToAct);
