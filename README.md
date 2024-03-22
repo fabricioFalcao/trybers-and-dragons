@@ -1,10 +1,14 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+### RPG Game Structure with SOLID Principles
+
+🧑‍💻 **What will be developed**
+
+In this project, the RPG Game Structure with SOLID Principles, the following tasks will be accomplished:
+
+- Implementation of SOLID principles and OOP (Object-Oriented Programming) concepts in a role-playing game (RPG) structure.
+
+⚙️ **Main Technologies and Tools**
+
+- JavaScript (Node.js)
+- SOLID Principles
+- OOP (Object-Oriented Programming)
+- Testing
